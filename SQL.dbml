@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WhatsUp" Class="SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=68.178.128.83\SQLEXPRESS;Initial Catalog=WhatsUp;User ID=mjohnston" SettingsObjectName="YellowPagesCrawler.Properties.Settings" SettingsPropertyName="WhatsUpConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Business" Member="Businesses">
+    <Type Name="Business">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="AddressID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddressCorporateID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddressCorporateID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TollFreePhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WebSite" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Facebook" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Skype" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ManagerContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtherContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstablishedIn" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentOptions" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HoursOfOperation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BusinessTrend" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Verified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Address_Business" Member="Address" ThisKey="AddressID1" OtherKey="ID" Type="Address" IsForeignKey="true" />
+      <Association Name="Address_Business1" Member="Address1" ThisKey="AddressID2" OtherKey="ID" Type="Address" IsForeignKey="true" />
+      <Association Name="Address_Business2" Member="Address2" ThisKey="AddressCorporateID1" OtherKey="ID" Type="Address" IsForeignKey="true" />
+      <Association Name="Address_Business3" Member="Address3" ThisKey="AddressCorporateID2" OtherKey="ID" Type="Address" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessTemp" Member="BusinessTemps">
+    <Type Name="BusinessTemp">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BusinessTrend" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Address_Business" Member="Businesses" ThisKey="ID" OtherKey="AddressID1" Type="Business" />
+      <Association Name="Address_Business1" Member="Businesses1" ThisKey="ID" OtherKey="AddressID2" Type="Business" />
+      <Association Name="Address_Business2" Member="Businesses2" ThisKey="ID" OtherKey="AddressCorporateID1" Type="Business" />
+      <Association Name="Address_Business3" Member="Businesses3" ThisKey="ID" OtherKey="AddressCorporateID2" Type="Business" />
+    </Type>
+  </Table>
+</Database>

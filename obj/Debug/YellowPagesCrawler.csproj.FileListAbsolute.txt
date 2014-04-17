@@ -1,0 +1,6 @@
+c:\users\mjohnston\documents\visual studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.exe.config
+C:\Users\mjohnston\Documents\Visual Studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.csprojResolveAssemblyReference.cache
+C:\Users\mjohnston\Documents\Visual Studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.exe
+C:\Users\mjohnston\Documents\Visual Studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.pdb
+C:\Users\mjohnston\Documents\Visual Studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.exe
+C:\Users\mjohnston\Documents\Visual Studio 2012\Projects\YellowPagesCrawler\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.pdb

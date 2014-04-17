@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SQL">
+  <DataContextMoniker Name="/SQLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0dc1cac0-0751-4466-ad63-d5c466f91a66" absoluteBounds="0.75, 0.75, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/SQLDataContext/Business" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ef52923-bc70-40b6-a7bc-eae559fbb381" absoluteBounds="0.765, 1.21, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="305eb5ce-389f-455d-b7a5-c9f84390a7e1" absoluteBounds="3.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SQLDataContext/BusinessTemp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca45bf2a-46f4-4ce3-8ce6-52ee7e903f2b" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3a2cad0-d5cb-4ee0-8028-b58c16f01ded" absoluteBounds="3.875, 3.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SQLDataContext/Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6ced482-d175-4690-a9cc-eb990c0d95b7" absoluteBounds="3.89, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 4.73159912109375); (2.75 : 4.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLDataContext/Address/Address_Business" />
+      <nodes>
+        <classShapeMoniker Id="a3a2cad0-d5cb-4ee0-8028-b58c16f01ded" />
+        <classShapeMoniker Id="0dc1cac0-0751-4466-ad63-d5c466f91a66" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 4.17829956054688); (2.75 : 4.17829956054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLDataContext/Address/Address_Business1" />
+      <nodes>
+        <classShapeMoniker Id="a3a2cad0-d5cb-4ee0-8028-b58c16f01ded" />
+        <classShapeMoniker Id="0dc1cac0-0751-4466-ad63-d5c466f91a66" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 5.28489868164062); (2.75 : 5.28489868164062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLDataContext/Address/Address_Business2" />
+      <nodes>
+        <classShapeMoniker Id="a3a2cad0-d5cb-4ee0-8028-b58c16f01ded" />
+        <classShapeMoniker Id="0dc1cac0-0751-4466-ad63-d5c466f91a66" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 5.00824890136719); (2.75 : 5.00824890136719)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLDataContext/Address/Address_Business3" />
+      <nodes>
+        <classShapeMoniker Id="a3a2cad0-d5cb-4ee0-8028-b58c16f01ded" />
+        <classShapeMoniker Id="0dc1cac0-0751-4466-ad63-d5c466f91a66" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
