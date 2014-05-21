@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WhatsUp" Class="SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=68.178.128.83\SQLEXPRESS;Initial Catalog=WhatsUp;User ID=mjohnston" SettingsObjectName="YellowPagesCrawler.Properties.Settings" SettingsPropertyName="WhatsUpConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=50.62.165.198\SQLEXPRESS;Initial Catalog=WhatsUp;User ID=apps" SettingsObjectName="YellowPagesCrawler.Properties.Settings" SettingsPropertyName="WhatsUpConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Business" Member="Businesses">
     <Type Name="Business">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
