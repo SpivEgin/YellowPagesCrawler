@@ -10,3 +10,9 @@ C:\Users\mjohnston\Documents\GitHub\YellowPagesCrawler\obj\Debug\YellowPagesCraw
 C:\Users\mjohnston\Documents\GitHub\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.exe
 C:\Users\mjohnston\Documents\GitHub\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.pdb
 C:\Users\mjohnston\Documents\GitHub\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.csprojResolveAssemblyReference.cache
+C:\GitHub\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.exe.config
+C:\GitHub\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.exe
+C:\GitHub\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.pdb
+C:\GitHub\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.exe
+C:\GitHub\YellowPagesCrawler\bin\Debug\YellowPagesCrawler.pdb
+C:\GitHub\YellowPagesCrawler\obj\Debug\YellowPagesCrawler.csprojResolveAssemblyReference.cache

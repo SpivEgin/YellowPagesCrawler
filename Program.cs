@@ -29,6 +29,8 @@ namespace YellowPagesCrawler
         private static List<string> TrendListUrls;
         private static List<CacheBusiness> CachedBusinesses;
 
+        private static bool Debugging = false;
+
         static void Main(string[] args)
         {
             Init();
@@ -54,7 +56,9 @@ namespace YellowPagesCrawler
             if (cache.TrendListIndex > 0 || cache.TrendIndex > 0)
             {
                 Console.WriteLine("Start process from last stop? Y/N");
-                if (Console.ReadKey().Key == ConsoleKey.Y)
+                ConsoleKey key = Console.ReadKey(true).Key;
+                Console.WriteLine("");
+                if (key == ConsoleKey.Y)
                 {
                     UrlLocation = cache.UrlLocation;
                     ZipCodes = cache.ZipCodes.Split(',');
@@ -94,16 +98,20 @@ namespace YellowPagesCrawler
         {
             Console.WriteLine("Enter YellowPages Url Location:");
             UrlLocation = Console.ReadLine();
+            Console.WriteLine("");
 
             Console.WriteLine("Enter comma-delimited Zip Code(s):");
             string zipCodes = Console.ReadLine();
             ZipCodes = zipCodes.Split(',');
+            Console.WriteLine("");
 
             Console.WriteLine("City:");
             City = Console.ReadLine();
+            Console.WriteLine("");
 
             Console.WriteLine("State:");
             State = Console.ReadLine();
+            Console.WriteLine("");
 
             Cache.Create(UrlLocation, zipCodes, City, State);
         }
@@ -116,15 +124,15 @@ namespace YellowPagesCrawler
             TrendUrls = new List<string>();
 
             string src = Core.HTML.GetSource(url, WebClient);
-            src = src.Remove(0, src.IndexOf("<ul class=\"categories-list\">"));
-            //src = src.Substring(0, src.IndexOf("<div id=\"global-footer\">"));
+            src = src.Remove(0, src.IndexOf("<h1 class=\"trends\">"));
 
-            string trends = src.Substring(0, src.IndexOf("</div>"));
+            string trends = src.Substring(0, src.IndexOf("</section></div></section></div>"));
             AddAnchorUrlsToList(trends, ref TrendUrls);
             TrendCount = TrendUrls.Count;
 
-            src = src.Remove(0, src.IndexOf("<div class=\"page-navigation\">"));
-            AddAnchorUrlsToList(src, ref TrendListUrls);
+            src = src.Remove(0, src.IndexOf("<div class=\"paginator trend_content\">"));
+            string trendLists = src.Substring(0, src.IndexOf("<section class=\"yp-links\">"));
+            AddAnchorUrlsToList(trendLists, ref TrendListUrls);
             TrendListCount = TrendListUrls.Count;
             Console.WriteLine("Got {0} trend lists.", TrendListCount);
         }
@@ -173,21 +181,25 @@ namespace YellowPagesCrawler
                 zip = null,
                 phone = null;
             string src = Core.HTML.GetSource(url, WebClient);
-            while (src.Contains("<div class=\"srp-business-name\">"))
+            src = src.Remove(0, src.IndexOf("<div class=\"info"));
+            src = src.Substring(0, src.IndexOf("class=\"pagination"));
+            while (src.Contains("<div class=\"info"))
             {
-                src = src.Remove(0, src.IndexOf("<div class=\"srp-business-name\">"));
-                src = src.Remove(0, src.IndexOf("title=\"") + 7);
-                companyName = src.Substring(0, src.IndexOf("\""));
+                src = src.Remove(0, src.IndexOf("<div class=\"info"));
 
-                src = src.Remove(0, src.IndexOf("<span class=\"street-address\">"));
+                src = src.Remove(0, src.IndexOf("itemprop=\"name\""));
+                src = src.Remove(0, src.IndexOf(">") + 1);
+                companyName = src.Substring(0, src.IndexOf("<"));
+
+                src = src.Remove(0, src.IndexOf("itemprop=\"streetAddress\""));
                 src = src.Remove(0, src.IndexOf(">") + 1);
                 address = src.Substring(0, src.IndexOf("<"));
 
-                src = src.Remove(0, src.IndexOf("<span class=\"postal-code\">"));
+                src = src.Remove(0, src.IndexOf("itemprop=\"postalCode\""));
                 src = src.Remove(0, src.IndexOf(">") + 1);
                 zip = src.Substring(0, src.IndexOf("<"));
 
-                src = src.Remove(0, src.IndexOf("<span class=\"business-phone phone\">"));
+                src = src.Remove(0, src.IndexOf("itemprop=\"telephone\""));
                 src = src.Remove(0, src.IndexOf(">") + 1);
                 phone = src.Substring(0, src.IndexOf("<"));
 
@@ -230,7 +242,7 @@ namespace YellowPagesCrawler
 
         private static void RandomSleep()
         {
-            Thread.Sleep(TimerRandom.Next(30, 60) * 1000);
+            if (!Debugging) Thread.Sleep(TimerRandom.Next(30, 60) * 1000);
         }
 
         private static void AddAnchorUrlsToList(string src, ref List<string> list)
